@@ -1,0 +1,18 @@
+.card{
+    width: 200px;
+    height: 400px;
+    background-color: black;
+    margin: 20px;
+    float:left;
+    border:black;
+    border-width: 10px;
+    text-align: center;
+    position: relative
+}
+
+.card p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+}
