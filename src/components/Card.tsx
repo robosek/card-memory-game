@@ -1,22 +1,26 @@
 import * as React from 'react';
 import { CardProps } from './Types'
 import './Card.css'
+import { CardState } from '../overmind/state';
+import { overmind } from '../overmind';
 
-export class Card extends React.Component<CardProps,{value:number}> {
+export class Card extends React.Component<CardProps> {
 
-    constructor(props:CardProps){
-        super(props)
-        this.state = {
-            value: -1
-        }
-    }
-
-    changeValues = () => this.setState({value: this.props.HiddenValue})
 
     render(){
-        return(
-        <div className="card" onClick={() => this.changeValues()}>
-            <p>{this.state.value}</p>
-        </div>)
+        if(this.props.CardState === CardState.Unrevelead){
+            return (
+                <div className="card" onClick={() => overmind.actions.hideCard({key: this.props.UniqueKey})}>
+                    <p>{this.props.BackSign}</p>
+                </div>
+            )
+        }
+        else{
+            return (
+                <div className="card" onClick={() => overmind.actions.showCard({key: this.props.UniqueKey})}>
+                    <p>{this.props.HiddenValue}</p>
+                </div>
+            )
+        }
     }
 }
