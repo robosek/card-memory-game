@@ -1,8 +1,14 @@
 import { IConfig, createOvermind } from 'overmind'
+import { createHook } from 'overmind-react'
 import { state } from './state'
 import * as actions from './actions'
+import { onInitialize } from './onInitialize'
 
-const config = { state, actions}
+const config = {
+  onInitialize, 
+  state, 
+  actions
+}
 
 declare module 'overmind' {
   // tslint:disable:interface-name
@@ -10,3 +16,4 @@ declare module 'overmind' {
 }
 
 export const overmind = createOvermind(config)
+export const useOvermind = createHook(overmind)

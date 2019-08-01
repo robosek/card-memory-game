@@ -2,19 +2,19 @@ import * as React from 'react';
 import './App.css';
 import { Card } from './components/Card'
 import { Provider } from 'overmind-react'
-import { overmind } from './overmind/index'
+import { overmind, useOvermind } from './overmind/index'
 
-function App() {
+const App = () => {
 
-  overmind.actions.generateCards()
-  const backSign = overmind.state.cardBackSign
-  const cardKeys = Array.from(overmind.state.cards.entries())
-  
+  const { state } = useOvermind()
+  const { cardBackSign } = state
+  const { cards } = state
+
   return (
     <Provider value={overmind}>
       <div className="container App">
         <div className="alert alert-primary" role="alert">
-          {cardKeys.map(entry => <Card UniqueKey={entry[0]} key={entry[0]} CardState={entry[1].state} BackSign={backSign} HiddenValue={entry[1].value} />)}
+          {cards.map(card => <Card UniqueKey={card.id} key={card.id} CardState={card.state} BackSign={cardBackSign} HiddenValue={card.value} />)}
         </div>
       </div>
     </Provider>

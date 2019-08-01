@@ -1,9 +1,10 @@
 export type State = {
   numberOfCards: number
-  revealedCards: Map<string,Card>
-  cardsUnderVerification: Map<string, Card>
-  cards: Map<string, Card>
+  revealedCards: Array<Card>
+  cardsUnderVerification: Array<Card>
+  cards: Array<Card>
   cardBackSign: string
+  underVerificationNumber: number
 }
 
 export enum CardState{
@@ -13,14 +14,19 @@ export enum CardState{
 }
 
 export type Card = {
+  id: string
   value: number
   state: CardState
 }
 
 export const state: State = {
   numberOfCards: 12,
-  revealedCards: new Map(),
-  cards: new Map(),
-  cardsUnderVerification: new Map(),
-  cardBackSign: "X"
+  revealedCards: [],
+  cards: [],
+  cardsUnderVerification: [],
+  get underVerificationNumber() {
+    return this.cardsUnderVerification.length
+  },
+  cardBackSign: "X",
+
 }
