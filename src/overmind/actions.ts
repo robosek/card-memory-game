@@ -1,29 +1,8 @@
-import { Action, wait, pipe } from 'overmind'
+import { Action, pipe, wait, Operator } from 'overmind'
 import { shuffle, generateKey } from '../utils'
-import { Card, CardState, State } from './state'
+import { Card, CardState } from './state'
+import * as o from './operators'
 
-const putOnVerification = (state: State ,card: Card) => {
-    const { revealedCards, cardsUnderVerification } = state
-
-    if (cardsUnderVerification.length < 1){
-        state.cardsUnderVerification = [...cardsUnderVerification, card]
-    }
-    else if (cardsUnderVerification.length === 1){
-        const card1 = cardsUnderVerification[0]
-        state.cardsUnderVerification = []
-        if(card1){
-            if (card1.value === card.value) {
-                card1.state = CardState.Revelead
-                card.state = CardState.Revelead
-                state.revealedCards = [...revealedCards, card1, card]
-            }
-            else {
-                card1.state = CardState.Unrevelead
-                card.state = CardState.Unrevelead
-            }
-        }
-    }
-}
 
 export const generateCards: Action = ({ state }) => {
     const cards:Array<Card> = []
@@ -47,7 +26,8 @@ export const showCard: Action<string> = ({ state }, key) => {
     const cardIndex = state.cards.findIndex(card => card.id === key)
     const card = state.cards[cardIndex]
     card.state = CardState.UnderVerification
-    putOnVerification(state, card);
+    state.cardsUnderVerification = [...state.cardsUnderVerification, card]
+
 }
 
 export const getCard: Action<string, Card> = ({state}, key) => {
