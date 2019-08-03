@@ -3,7 +3,6 @@ export type State = {
   revealedCards: Array<Card>
   cardsUnderVerification: Array<Card>
   cards: Array<Card>
-  cardBackSign: string
 }
 
 export enum CardState{
@@ -17,13 +16,13 @@ export type Card = {
   id: string
   value: number
   state: CardState
+  picturePath: string
 }
 
 export const state: State = {
-  numberOfCards: 12,
+  numberOfCards: 10,
   revealedCards: [],
   cards: [],
-  cardsUnderVerification: [],
-  cardBackSign: "X",
+  cardsUnderVerification: []
 
 }

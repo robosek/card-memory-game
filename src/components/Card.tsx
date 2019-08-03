@@ -4,7 +4,7 @@ import './Card.css'
 import { CardState } from '../overmind/state';
 import { useOvermind } from '../overmind';
 
-export const Card: React.FunctionComponent<CardProps> = ({card, backSign}) => {
+export const Card: React.FunctionComponent<CardProps> = ({ card }) => {
 
     const { actions } = useOvermind()
     const { tryCard } = actions
@@ -12,26 +12,28 @@ export const Card: React.FunctionComponent<CardProps> = ({card, backSign}) => {
     if (card.state === CardState.Unrevelead){
         return (
             <div className="game-card game-card-back" onClick={() => tryCard(card.id)}>
+                <img src={require(`../pictures/back.png`)} alt="" className="img-fluid"/>
             </div>
         )
     }
     else if(card.state === CardState.Blocked){
         return(
             <div className="game-card game-card-back">
+                 <img src={require(`../pictures/back.png`)} alt="" className="img-fluid"/>
         </div>
         )
     }
     else if(card.state === CardState.UnderVerification){
         return (
-            <div className="game-card">
-                <h1>{card.value}</h1>
+            <div className="game-card game-card-under-verification">
+                <img src={require(`../pictures/${card.picturePath}`)} alt="" className="img-fluid"/>
             </div>
         )
     }
     else{
         return (
             <div className="game-card game-card-revealed">
-                <h1>{card.value}</h1>
+               <img src={require(`../pictures/${card.picturePath}`)} alt="" className="img-fluid"/>
             </div>
         )
     }

@@ -85,8 +85,8 @@ export const generateShuffledCards: () => Operator = () => mutate(
 
         for (let i = 0; i < (state.numberOfCards / 2); i++) 
         {
-            cards.push({id: generateKey(), value: i, state: CardState.Unrevelead})
-            cards.push({id: generateKey(), value: i, state: CardState.Unrevelead})
+            cards.push({id: generateKey(), value: i, state: CardState.Unrevelead, picturePath: `${i}.png`})
+            cards.push({id: generateKey(), value: i, state: CardState.Unrevelead, picturePath: `${i}.png`})
         }
 
         state.cards =  shuffle(cards);
