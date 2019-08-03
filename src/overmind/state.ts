@@ -4,13 +4,13 @@ export type State = {
   cardsUnderVerification: Array<Card>
   cards: Array<Card>
   cardBackSign: string
-  underVerificationNumber: number
 }
 
 export enum CardState{
   Revelead,
   Unrevelead,
-  UnderVerification
+  UnderVerification,
+  Blocked
 }
 
 export type Card = {
@@ -24,9 +24,6 @@ export const state: State = {
   revealedCards: [],
   cards: [],
   cardsUnderVerification: [],
-  get underVerificationNumber() {
-    return this.cardsUnderVerification.length
-  },
   cardBackSign: "X",
 
 }

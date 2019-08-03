@@ -13,8 +13,8 @@ const App = () => {
   return (
     <Provider value={overmind}>
       <div className="container App">
-        <div className="alert alert-primary" role="alert">
-          {cards.map(card => <Card UniqueKey={card.id} key={card.id} CardState={card.state} BackSign={cardBackSign} HiddenValue={card.value} />)}
+        <div>
+          {cards.map(card => <Card key={card.id} card={card} backSign={cardBackSign}  />)}
         </div>
       </div>
     </Provider>

@@ -4,23 +4,34 @@ import './Card.css'
 import { CardState } from '../overmind/state';
 import { useOvermind } from '../overmind';
 
-export const Card: React.FunctionComponent<CardProps> = ({UniqueKey, HiddenValue, BackSign}) => {
+export const Card: React.FunctionComponent<CardProps> = ({card, backSign}) => {
 
     const { actions } = useOvermind()
-    const { showCard, getCard } = actions
-    const card = getCard(UniqueKey)
+    const { tryCard } = actions
 
     if (card.state === CardState.Unrevelead){
         return (
-            <div className="card" onClick={() => showCard(UniqueKey)}>
-                <h1>{BackSign}</h1>
+            <div className="game-card game-card-back" onClick={() => tryCard(card.id)}>
+            </div>
+        )
+    }
+    else if(card.state === CardState.Blocked){
+        return(
+            <div className="game-card game-card-back">
+        </div>
+        )
+    }
+    else if(card.state === CardState.UnderVerification){
+        return (
+            <div className="game-card">
+                <h1>{card.value}</h1>
             </div>
         )
     }
     else{
         return (
-            <div className="card">
-                <h1>{HiddenValue}</h1>
+            <div className="game-card game-card-revealed">
+                <h1>{card.value}</h1>
             </div>
         )
     }

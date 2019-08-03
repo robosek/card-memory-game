@@ -1,18 +1,29 @@
-.card{
+.game-card{
     width: 200px;
     height: 400px;
-    background-color: black;
     margin: 20px;
     float:left;
-    border:black;
-    border-width: 10px;
     text-align: center;
-    position: relative
+    position: relative;
+    border-style: double;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
 }
 
-.card h1 {
+.game-card-back{
+    background-color: cornflowerblue;
+}
+
+.game-card-revealed{
+    background-color: bisque;
+}
+
+.game-card h1 {
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
 }
+
+
