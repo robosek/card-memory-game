@@ -9,12 +9,12 @@ export const Panel: React.FunctionComponent = () => {
 
   return (
     <form>
-      <div className="form-row">
-        <div className="form-group col-md-6">
-          <RadioButton/>
+      <div className="center">
+        <div className="form-group col-md-12">
+            <RadioButton/>
         </div>
-        <div className="form-group col-md-6">
-          <input type="text" readOnly className="form-control-plaintext panel" placeholder={`Your score is ${state.totalScore} points!`} />
+        <div className="form-group col-md-12">
+          <input type="text" readOnly className="form-control-plaintext input-score " placeholder={`Score: ${state.totalScore} points`} />
         </div>
       </div>
     </form>

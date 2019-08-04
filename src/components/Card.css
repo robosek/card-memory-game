@@ -22,6 +22,7 @@
 
 
 .game-card-under-verification{
+    background-color:white;
     text-align: center;
     font: 100px/220px Georgia, Times New Roman, serif;
 }

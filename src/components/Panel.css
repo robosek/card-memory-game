@@ -1,3 +1,7 @@
 .score{
-    font: 100px/220px Georgia, Times New Roman, serif;
+   font: 300px/620px Georgia, Times New Roman, serif;
+}
+
+.input-score {
+    color:white;
 }

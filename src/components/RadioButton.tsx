@@ -1,5 +1,4 @@
 import * as React from 'react';
-//import { DropdownButton, Dropdown } from 'react-bootstrap'
 import './Card.css'
 import { useOvermind } from '../overmind';
 
@@ -14,19 +13,19 @@ export const RadioButton: React.FunctionComponent = () => {
     
     return (
         <div className="btn-group btn-group-toggle" data-toggle="buttons">
-            <label className="btn btn-success">
+            <label className="btn btn-secondary">
                 12 cards
-            <input type="radio" name="options" id="option1" onChange={onRadioChanged}  autoComplete="off" value={12} checked={true}/>
+            <input type="radio" name="options" id="option1" onChange={onRadioChanged}  autoComplete="off" value={12} />
             </label>
-            <label className="btn btn-success">
+            <label className="btn btn-secondary">
                 16 cards
             <input type="radio" name="options" id="option2" onChange={onRadioChanged} autoComplete="off" value={16}/>
             </label>
-            <label className="btn btn-success">
+            <label className="btn btn-secondary">
                 20 cards
             <input type="radio" name="options" id="option3" onChange={onRadioChanged} autoComplete="off" value={20}/>
             </label>
-            <label className="btn btn-success">
+            <label className="btn btn-secondary">
                 22 cards
             <input type="radio" name="options" id="option3" onChange={onRadioChanged} autoComplete="off" value={22}/>
             </label>

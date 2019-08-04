@@ -67,8 +67,8 @@ export const clearUnderVerification: () => Operator = () => mutate(
 )
 
 export const congratsAlert: () => Operator = () => action(
-    () => {
-        alert("Congratulations! You're mind master!")
+    ( {state} ) => {
+        alert(`Congratulations! Your score is ${state.totalScore} points.`)
     }
 )
 
