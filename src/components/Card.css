@@ -30,5 +30,6 @@
 .game-card-revealed{
     text-align: center;
     font: 100px/220px Georgia, Times New Roman, serif;
-    opacity: 0.5
+    opacity: 0.5;
+    background-color:white;
 }
