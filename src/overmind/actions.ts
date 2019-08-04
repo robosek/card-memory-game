@@ -5,16 +5,24 @@ const showMissedCardsTimeMs = 600
 
 export const startNewGame: Operator = o.startNewGame()
 
+export const changeCardsNumber: Operator<number> = pipe(
+    o.setNewCardsNumber(),
+    o.startNewGame()
+) 
+
 export const tryCard : Operator<string> = pipe(
     o.getCardIndexByKey(),
     o.setUnderVerification(),
     o.canVerify({
         true: o.cardsAreEqual({
             true:pipe(
+                o.countScore(),
+                o.clearMissedChecks(),
                 o.setAllUnderVerificationToRevelead(), 
                 o.clearUnderVerification()
             ),
             false:pipe(
+                o.incrementMissedChecks(),
                 o.setAllUnreveleadToBlocked(),
                 wait(showMissedCardsTimeMs),
                 o.setAllBlockedToUnrevelead(),

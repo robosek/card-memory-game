@@ -94,6 +94,42 @@ export const generateShuffledCards: () => Operator = () => mutate(
 )
 
 export const startNewGame: () => Operator = () => pipe(
+    clearTotalScore(),
+    clearMissedChecks(),
     clearGameState(),
     generateShuffledCards()
 )
+
+export const setNewCardsNumber: () => Operator<number> = () => mutate(
+    ( {state}, cardsNumber) => {
+        state.numberOfCards = cardsNumber 
+    }
+)
+
+export const incrementMissedChecks: () => Operator = () => mutate(
+    ( {state} ) => state.missedChecks += 1
+)
+
+export const clearMissedChecks: () => Operator = () => mutate(
+    ( {state} ) => state.missedChecks = 0
+)
+
+export const clearTotalScore: () => Operator = () => mutate(
+    ( {state} ) => state.totalScore = 0
+)
+
+export const countScore: () => Operator = () => mutate(
+    ( {state} ) => {
+        const missedChecks = state.missedChecks
+        
+        if(missedChecks === 0)
+            state.totalScore += 10
+        else if(missedChecks >= 1 && missedChecks <=3)
+            state.totalScore +=5
+        else if(missedChecks > 3 && missedChecks < 10)
+            state.totalScore +=1
+        else 
+            state.totalScore +=0
+    }
+)
+

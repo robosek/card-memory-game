@@ -2,7 +2,9 @@ export type State = {
   numberOfCards: number
   revealedCards: Array<Card>
   cardsUnderVerification: Array<Card>
-  cards: Array<Card>
+  cards: Array<Card>,
+  missedChecks:number,
+  totalScore: number
 }
 
 export enum CardState{
@@ -20,9 +22,10 @@ export type Card = {
 }
 
 export const state: State = {
-  numberOfCards: 10,
+  numberOfCards: 12,
   revealedCards: [],
   cards: [],
-  cardsUnderVerification: []
-
+  cardsUnderVerification: [],
+  missedChecks: 0,
+  totalScore: 0
 }
