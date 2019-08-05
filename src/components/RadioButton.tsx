@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './Card.css'
+import './RadioButton.css'
 import { useOvermind } from '../overmind';
 
 export const RadioButton: React.FunctionComponent = () => {
@@ -10,24 +11,24 @@ export const RadioButton: React.FunctionComponent = () => {
         const number = event.target.value
         actions.changeCardsNumber(parseInt(number));
     }
-    
+
     return (
-        <div className="btn-group btn-group-toggle" data-toggle="buttons">
-            <label className="btn btn-secondary">
-                12 cards
-            <input type="radio" name="options" id="option1" onChange={onRadioChanged}  autoComplete="off" value={12} />
+        <div className="center">
+            <label>
+                12
+            <input type="radio" name="cards-number" value={12} id="radio-one"  className="form-radio" onChange={onRadioChanged} />
             </label>
-            <label className="btn btn-secondary">
-                16 cards
-            <input type="radio" name="options" id="option2" onChange={onRadioChanged} autoComplete="off" value={16}/>
-            </label>
-            <label className="btn btn-secondary">
-                20 cards
-            <input type="radio" name="options" id="option3" onChange={onRadioChanged} autoComplete="off" value={20}/>
-            </label>
-            <label className="btn btn-secondary">
-                22 cards
-            <input type="radio" name="options" id="option3" onChange={onRadioChanged} autoComplete="off" value={22}/>
+            <label>
+                16
+            <input type="radio" name="cards-number" value={16} id="radio-one" className="form-radio" onChange={onRadioChanged} />
+            </label>            
+            <label>
+                20
+            <input type="radio" name="cards-number" value={20} id="radio-one" className="form-radio" onChange={onRadioChanged} />
+            </label>            
+            <label>
+                22
+            <input type="radio" name="cards-number" value={22} id="radio-one" className="form-radio" onChange={onRadioChanged} />
             </label>
         </div>
     )
