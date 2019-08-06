@@ -3,9 +3,9 @@ import './Panel.css'
 import { RadioButton } from './RadioButton'
 import { useOvermind } from '../overmind';
 
-export const Panel: React.FunctionComponent = () => {
+export const Panel: React.FunctionComponent<{totalScore: number}> = (score) => {
 
-  const { state } = useOvermind()
+  useOvermind()
 
   return (
     <form>
@@ -14,7 +14,7 @@ export const Panel: React.FunctionComponent = () => {
             <RadioButton/>
         </div>
         <div className="form-group col-md-12">
-          <input type="text" readOnly className="form-control-plaintext input-score " placeholder={`Score: ${state.totalScore} points`} />
+          <input type="text" readOnly className="input-score form-control-plaintext" placeholder={`${score.totalScore} points`} />
         </div>
       </div>
     </form>

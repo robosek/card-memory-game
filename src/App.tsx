@@ -14,7 +14,7 @@ const App = () => {
     <Provider value={overmind}>
       <div className="container App">
       <img src={require(`./pictures/title.png`)} alt="" className="img-responsive center"/>
-        <Panel />
+        <Panel totalScore={state.totalScore} />
         <div className="flex-container">
           {cards.map(card => <Card key={card.id} card={card} />)}
         </div>
