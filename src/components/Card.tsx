@@ -12,7 +12,7 @@ export const Card: React.FunctionComponent<CardProps> = ({ card }) => {
     if (card.state === CardState.Unrevelead){
         return (
             <div className="game-card game-card-back" onClick={() => tryCard(card.id)}>
-                <img src={require(`../pictures/back.png`)} alt="" className="img-fluid"/>
+                <img src={require(`../pictures/back.png`)} alt="" className="img-fluid" />
             </div>
         )
     }

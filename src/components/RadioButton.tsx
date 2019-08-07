@@ -2,14 +2,11 @@ import * as React from 'react';
 import './Card.css'
 import './RadioButton.css'
 import { useOvermind } from '../overmind';
+import { Dictionary } from '../overmind/state';
 
-export const RadioButton: React.FunctionComponent = () => {
+export const RadioButton: React.FunctionComponent<{ gameLevel: Dictionary<number> }> = ({ gameLevel }) => {
 
     const { actions, state } = useOvermind()
-    const first = 12 
-    const second = 16
-    const third = 20
-    const fourth = 22
 
     const onRadioChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
         const number = event.target.value
@@ -19,20 +16,20 @@ export const RadioButton: React.FunctionComponent = () => {
     return (
         <div className="center">
             <label>
-                12
-            <input type="radio" name="cards-number" value={12} id="radio-one" className="form-radio" onChange={onRadioChanged} checked={state.numberOfCards === first}/>
+                { gameLevel["1"] }
+            <input type="radio" name="cards-number" value={gameLevel["1"]} id="1" className="form-radio" onChange={onRadioChanged} checked={state.numberOfCards === gameLevel["1"]}/>
             </label>
             <label>
-                16
-            <input type="radio" name="cards-number" value={16} id="radio-x" className="form-radio" onChange={onRadioChanged} checked={state.numberOfCards === second} />
+                {gameLevel["2"]}
+                <input type="radio" name="cards-number" value={gameLevel["2"]} id="2" className="form-radio" onChange={onRadioChanged} checked={state.numberOfCards === gameLevel["2"]}/>
             </label>            
             <label>
-                20
-            <input type="radio" name="cards-number" value={20} id="radio-o" className="form-radio" onChange={onRadioChanged} checked={state.numberOfCards === third}/>
+                {gameLevel["3"]}
+                <input type="radio" name="cards-number" value={gameLevel["3"]} id="3" className="form-radio" onChange={onRadioChanged} checked={state.numberOfCards === gameLevel["3"]}/>
             </label>            
             <label>
-                22
-            <input type="radio" name="cards-number" value={22} id="radio-ne" className="form-radio" onChange={onRadioChanged} checked={state.numberOfCards === fourth}/>
+                {gameLevel["4"]}
+                <input type="radio" name="cards-number" value={gameLevel["4"]} id="4" className="form-radio" onChange={onRadioChanged} checked={state.numberOfCards === gameLevel["4"]}/>
             </label>
         </div>
     )
