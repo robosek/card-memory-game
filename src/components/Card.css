@@ -20,11 +20,13 @@
     font: 100px/220px Georgia, Times New Roman, serif;
 }
 
-
 .game-card-under-verification{
     background-color:white;
     text-align: center;
     font: 100px/220px Georgia, Times New Roman, serif;
+    transform: rotateY(360deg);
+    transition: 0.3s;
+    transform-style: preserve-3d;
 }
 
 .game-card-revealed{
